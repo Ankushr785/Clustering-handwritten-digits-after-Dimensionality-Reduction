@@ -46,3 +46,19 @@ def plot_pca_scatter():
 #now use the plotting function to visualize
 plot_pca_scatter()
 
+#Now we'll take the principal components from the estimator by accesing the'components' attribute
+#And we'll plot the newly formed components in the same shape as the original data
+
+def print_pca_components(images, n_col, n_row):
+    plt.figure(figsize = (2. * n_col, 2.26 * n_row))
+    for i, comp in enumerate(images):
+        plt.subplot(n_row, n_col, i+1)
+        plt.imshow(comp.reshape((8, 8)), interpolation = 'nearest')
+        plt.text(0, -1, str(i+1) + '-component')
+        plt.xticks(())
+        plt.yticks(())
+        
+#now visualize the dimensionally reduced forms of the labels
+
+print_pca_components(estimator, n_col, n_row)   
+
